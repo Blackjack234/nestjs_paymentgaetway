@@ -7,9 +7,9 @@ export class PaymentService {
   private stripe: Stripe;
 
   constructor(private configService: ConfigService) {
-    this.stripe = new Stripe(
-      this.configService.getOrThrow<string>('STRIPE_SECRET_KEY'),
-    );
+      this.stripe = new Stripe(
+        this.configService.getOrThrow<string>('STRIPE_SECRET_KEY'),
+      );
   }
 
   async createCheckoutSession(amount: number, currency = 'usd') {
